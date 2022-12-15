@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from './account/account.component';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AccountComponent } from './account/account.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { CartComponent } from './pages/cart/cart.component';
+import { ClientComponent } from './client/client.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'client', pathMatch: 'full' },
   {
-    path: 'dashboard',
-    component: DashboardComponent,
+    path: 'client',
+    component: ClientComponent,
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      import('./client/client.module').then((m) => m.ClientModule),
+  },
+  {
+    path: 'admin',
+    component: ClientComponent,
+    canLoad: [AdminGuard],
+    canActivate: [AdminGuard],
+    loadChildren: () =>
+      import('./client/client.module').then((m) => m.ClientModule),
   },
   {
     path: 'account',
@@ -26,7 +32,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent, CartComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes, { useHash: true })],
   providers: [],
   bootstrap: [AppComponent],
