@@ -4,6 +4,7 @@ import { AccountComponent } from './account.component';
 import { LoginComponent } from '../pages/account/login/login.component';
 import { SignUpComponent } from '../pages/account/sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxMaskModule } from 'ngx-mask';
 
 const accountRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const accountRoutes: Routes = [
     SignUpComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(accountRoutes)
+    RouterModule.forChild(accountRoutes),
+    NgxMaskModule.forRoot()
   ],
 })
 export class AccountModule {}

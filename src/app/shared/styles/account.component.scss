@@ -1,0 +1,277 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.required {
+  color: var(--color-1);
+}
+
+.container {
+  background: linear-gradient(45deg, #ffe38f, #ffc58f);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background:rgba(0, 0, 0, 0.2)
+}
+
+.account-container {
+  width: 90%;
+  height: 90%;
+  display: flex;
+}
+
+.cide-left {
+  background: linear-gradient(45deg, var(--color-1), var(--color-2));
+  width: 50%;
+  border-radius: 20px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cide-left #text-img {
+  width: 40%;
+}
+
+.cide-left #icone {
+  width: 80%;
+}
+
+.cide-right {
+  width: 50%;
+  background: var(--color-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background: var(--color-4);
+  box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 30px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.card-header h1 {
+  position: relative;
+  font-family: "Avenir Bold", sans-serif;
+}
+
+.input-group {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.group-content {
+  display: flex;
+  width: 400%;
+}
+
+.step {
+  width: 25%;
+  transition: 0.2s;
+}
+
+.box {
+  width: 100%;
+  border: 1px rgba(0, 0, 0, 0.2) solid;
+  border-radius: 20px;
+  padding: 2px 4px;
+  margin-top: 15px;
+}
+
+.box:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.unique-box .box {
+  margin-bottom: 0px;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: 0;
+  padding: 7px 14px;
+  outline: none;
+}
+
+.group-content > input[type="radio"] {
+  display: none;
+}
+
+#radio-1:checked ~ .current {
+  margin-left: 0;
+}
+
+#radio-2:checked ~ .current {
+  margin-left: -25%;
+}
+#radio-3:checked ~ .current {
+  margin-left: -50%;
+}
+
+#radio-4:checked ~ .current {
+  margin-left: -75%;
+}
+
+.input-box label {
+  position: absolute;
+  opacity: 0.7;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  transform: translateY(-60%);
+  transition: 0.2s;
+  opacity: 1;
+  top: 0;
+  background: var(--color-4);
+}
+
+a {
+  color: gray;
+  text-decoration: none;
+}
+
+.action {
+  color: #287ae6;
+}
+
+.card-controller {
+  margin: 10px 0px;
+}
+
+.card-controller {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-button-controller {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-button-controller button:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.card-or-login {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.line {
+  margin-top: 10px;
+  height: 1px;
+  position: relative;
+  margin: auto;
+  background: #cccccc;
+  margin-bottom: 20px;
+}
+
+.line::before {
+  content: "Ou";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-4);
+  padding: 0px 15px;
+}
+
+.card-button-controller button:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.card-button-controller  button{
+    font-family: 'Avenir Bold';
+    background: var(--color-1);
+    border: 0;
+    text-transform: uppercase;
+    color: var(--color-4);
+    outline: none;
+    border-radius: 7px;
+    padding: 9px 14px;
+}
+
+#btn-v{
+    background: var(--color-6);
+}
+
+.google-icon {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: 1px #cccccc solid;
+  background: var(--color-4);
+  cursor: pointer;
+}
+
+
+.card-or-login{
+  margin-top: 15px;
+}
+
+.google-icon img {
+  width: 30px;
+  margin-right: 20px;
+}
+
+
+
+@media screen and (max-width:  780px) {
+  .card-controller{
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width:  700px) {
+  .cide-left{
+    display: none;
+  }
+
+  .cide-right{
+    width: 100%;
+    margin: auto;
+    border-radius: 20px;
+  }
+}
