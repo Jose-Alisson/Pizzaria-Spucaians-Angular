@@ -5,14 +5,11 @@
       <img src="assets//Pizza maker-cuate.svg" alt="" id="icone" />
     </div>
     <div class="cide-right">
-      <div class="card">
+      <div class="card" id="card">
         <router-outlet></router-outlet>
         <div class="card-or-login">
           <div class="line"></div>
-          <div class="google-icon">
-            <img src="assets//google icon.png" alt="" />
-            <p>Continuar com a Google</p>
-          </div>
+          <asl-google-signin-button [text]="'signin_with'" [type]="'standard'"></asl-google-signin-button>
         </div>
       </div>
     </div>
