@@ -10,6 +10,7 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule,
 } from '@abacritt/angularx-social-login';
+import { FormsModule } from '@angular/forms';
 
 const accountRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,11 +18,16 @@ const accountRoutes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
 ];
 @NgModule({
-  declarations: [AccountComponent, LoginComponent, SignUpComponent],
+  declarations: [
+    AccountComponent,
+    LoginComponent,
+    SignUpComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(accountRoutes),
     NgxMaskModule.forRoot(),
+    FormsModule,
     SocialLoginModule,
   ]
 })

@@ -1,78 +1,93 @@
 <div class="card-header">
   <h1>Inscrever-se</h1>
 </div>
-<form class="input-group">
+<br>
+<div class="input-group">
   <div class="group-content">
     <input type="radio" name="radio" id="radio-1" checked="true" />
     <input type="radio" name="radio" id="radio-2" />
     <input type="radio" name="radio" id="radio-3" />
+    <input type="radio" name="radio" id="radio-4" />
 
     <div class="step current">
       <div class="box">
         <div class="input-box">
-          <input type="text" id="usuario" required />
+          <input type="text" id="usuario" required [(ngModel)]="user.authorization.user">
           <label for="usuario">Usuario<span class="required">*</span></label>
         </div>
+        <p><span class="error">{{error?.['authorization.user']}}</span></p>
       </div>
+
       <div class="box">
         <div class="input-box">
-          <input type="password" id="senha" required />
+          <input type="password" id="senha" required [(ngModel)]="user.authorization.password" >
           <label for="senha">Senha<span class="required">*</span></label>
         </div>
+        <p><span class="error">{{error?.['authorization.password']}}</span></p>
       </div>
       <div class="box">
         <div class="input-box">
-          <input type="password" id="comfim-senha" required />
-          <label for="comfim-senha">Confirmar Senha<span class="required">*</span></label>
+          <input type="password" id="com-senha" required [(ngModel)]="confirm.password">
+          <label for="com-senha">Confirmar Senha<span class="required">*</span></label>
+        </div>
+        <p *ngIf="confirm.password != user.authorization.password">
+          <span class="error">A sua confirmação não é igual a sua senha</span>
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <div class="input-box">
+          <input type="text" id="apelido" required [(ngModel)]="user.name">
+          <label for="apelido">Apelido<span class="required">*</span></label>
+        </div>
+        <p><span class="error">{{error?.name}}</span></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <div class="input-box">
+          <input type="tel" id="zap" mask="9999-9999" required [(ngModel)]="user.contact">
+          <label for="zap">Número de Whatsapp</label>
+        </div>
+      </div>
+      <div class="box" *ngIf="getZapVaue() > 0" >
+        <div class="input-box">
+          <input type="text" id="code" mask="9999" [(ngModel)]="codigo">
+          <label for="code">Código de Verificação</label>
         </div>
       </div>
     </div>
     <div class="step">
       <div class="box">
         <div class="input-box">
-          <input type="text" id="nome" required />
-          <label for="nome">Seu Nome<span class="required">*</span></label>
+          <input type="text" id="noa" required [(ngModel)]="address.addressName">
+          <label for="noa">Nome do Endereço</label>
         </div>
       </div>
       <div class="box">
-        <div class="input-box">
-          <input type="text" id="apelido" required />
-          <label for="apelido">Seu Apelido</label>
-        </div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="box">
-        <div class="input-box">
-          <input type="text" id="name-address" required />
-          <label for="name-address">Nome do Endereço</label>
-        </div>
-      </div>
-      <div class="box">
-        <div class="input-box">
-          <input type="text" id="cep" required />
+        <div class="input-box" id="cep" >
+          <input type="text" id="apelido" required [(ngModel)]="address.cep">
           <label for="cep">CEP</label>
         </div>
       </div>
       <div class="box">
         <div class="input-box">
-          <input type="text" id="n-h" required />
-          <label for="n-h">Número da Residencia</label>
+          <input type="text" id="nor" required [(ngModel)]="address.noth">
+          <label for="nor">Número da Residencia</label>
         </div>
       </div>
       <div class="box">
         <div class="input-box">
-          <input type="text" id="localidade" required />
+          <input type="text" id="localidade" required [(ngModel)]="address.locality">
           <label for="localidade">Localidade</label>
         </div>
       </div>
     </div>
   </div>
-</form>
+</div>
 <div class="card-controller">
-  <a [routerLink]="['../login']"
-    >Já tenho uma conta. <span class="action">Entrar</span></a
-  >
+  <a [routerLink]="['../login']">Já tenho uma conta. <span class="action">Entrar</span></a>
 </div>
 <div class="card-button-controller">
   <button (click)="verificar()" id="btn-p">{{ textButton }}</button>

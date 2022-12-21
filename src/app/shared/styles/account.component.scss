@@ -6,9 +6,12 @@
   color: var(--color-1);
 }
 
+.error{
+  color: tomato;
+  font-size: 12px;
+}
+
 .container {
-  background: linear-gradient(45deg, #ffe38f, #ffc58f);
-  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,39 +23,37 @@
 }
 
 .account-container {
-  width: 90%;
-  height: 90%;
+  background: linear-gradient(45deg, var(--color-1), var(--color-2));
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
   display: flex;
-  position: relative;
 }
 
 .cide-left {
-  background: linear-gradient(45deg, var(--color-1), var(--color-2));
   width: 50%;
-  border-radius: 20px 0px 0px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
 }
 
 .cide-left #text-img {
-  width: 40%;
+  height: 15%;
 }
 
 .cide-left #icone {
-  width: 80%;
+  height: 70%;
 }
 
 .cide-right {
   width: 50%;
   background: var(--color-4);
+  box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 0px 20px 20px 0px;
   overflow: hidden;
 }
 
@@ -60,8 +61,6 @@
   width: 100%;
   height: 100%;
   background: var(--color-4);
-  box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.2);
-  //border-radius: 20px;
   padding: 30px 35px;
   display: flex;
   flex-direction: column;
@@ -99,10 +98,6 @@
 
 .box {
   width: 100%;
-  border: 1px rgba(0, 0, 0, 0.2) solid;
-  border-radius: 20px;
-  padding: 2px 4px;
-  margin-top: 15px;
 }
 
 .box:not(:last-child) {
@@ -115,6 +110,10 @@
 
 .input-box {
   position: relative;
+  border: 1px rgba(0, 0, 0, 0.2) solid;
+  border-radius: 5px;
+  padding: 2px 4px;
+  margin-top: 15px;
 }
 
 .input-box input {
@@ -137,6 +136,7 @@
 #radio-2:checked ~ .current {
   margin-left: -25%;
 }
+
 #radio-3:checked ~ .current {
   margin-left: -50%;
 }
@@ -144,6 +144,8 @@
 #radio-4:checked ~ .current {
   margin-left: -75%;
 }
+
+
 
 .input-box label {
   position: absolute;
@@ -208,7 +210,7 @@ a {
 }
 
 .line::before {
-  content: "Ou";
+  content: "Continuar Com";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -269,7 +271,7 @@ a {
   }
 
   .cide-right {
-    width: 100%;
+    width: 90%;
     margin: auto;
     border-radius: 20px;
   }

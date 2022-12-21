@@ -10,6 +10,7 @@ import { AccountComponent } from './account/account.component';
 import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { AdminGuard } from './guards/admin.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'client', pathMatch: 'full' },
@@ -36,8 +37,14 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes, { useHash: true })],
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    HttpClientModule
+  ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',
