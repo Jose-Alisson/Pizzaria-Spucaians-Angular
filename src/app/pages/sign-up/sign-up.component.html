@@ -1,0 +1,109 @@
+<div class="content">
+  <div class="header">
+    <div class="icone">
+      <img src="assets//iconePizzaria.png" alt="" />
+    </div>
+    <h1>Registra-se</h1>
+    <h3>Etapa {{count}} de 4</h3>
+    <h3>{{stepMsg[count - 1]}}</h3>
+  </div>
+  <div class="input-group">
+    <div class="group-content">
+      <input type="radio" name="radio" id="radio-1" checked="true" />
+      <input type="radio" name="radio" id="radio-2" />
+      <input type="radio" name="radio" id="radio-3" />
+      <input type="radio" name="radio" id="radio-4" />
+
+      <div class="step current">
+        <div class="box">
+          <div class="input-box">
+            <input type="text" id="usuario" required [(ngModel)]="user.authorization.user" />
+            <label for="usuario">Usuario<span class="required">*</span></label>
+          </div>
+          <p class="error"> {{error?.['authorization.user']}}</p>
+        </div>
+
+        <div class="box">
+          <div class="input-box">
+            <input type="password" id="senha" required [(ngModel)]="user.authorization.password" />
+            <label for="senha">Senha<span class="required">*</span></label>
+          </div>
+          <p>
+            <span class="error">{{error?.['authorization.password']}}</span>
+          </p>
+        </div>
+        <div class="box">
+          <div class="input-box">
+            <input type="password" id="com-senha" required [(ngModel)]="confirm.password" />
+            <label for="com-senha">Confirmar Senha<span class="required">*</span></label>
+          </div>
+          <p *ngIf="confirm.password != user.authorization.password">
+            <span class="error">A sua confirmação não é igual a sua senha</span>
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="box">
+          <div class="input-box">
+            <input type="text" id="apelido" required [(ngModel)]="user.name" />
+            <label for="apelido">Apelido<span class="required">*</span></label>
+          </div>
+          <p class="error">{{error?.name}}</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="box">
+          <div class="input-box">
+            <input type="tel" id="zap" prefix="(81) " mask="9999-9999" required [(ngModel)]="user.contact" />
+            <label for="zap">Número de Whatsapp</label>
+          </div>
+        </div>
+        <div class="box" *ngIf="confirm.code.length > 0 && getZapValue() > 0">
+          <div class="input-box">
+            <input type="text" id="code" mask="9999" [(ngModel)]="confirm.codigo" />
+            <label for="code">Código de Verificação</label>
+          </div>
+          <p class="error">{{error?.verify}}</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="box">
+          <div class="input-box">
+            <input type="text" id="noa" required [(ngModel)]="address.nameAddress" />
+            <label for="noa">Nome do Endereço</label>
+          </div>
+        </div>
+        <div class="box">
+          <div class="input-box" id="cep">
+            <input type="text" id="apelido" required [(ngModel)]="address.cep" />
+            <label for="cep">CEP</label>
+          </div>
+        </div>
+        <div class="box">
+          <div class="input-box">
+            <input type="text" id="nor" required [(ngModel)]="address.noth" />
+            <label for="nor">Número da Residencia</label>
+          </div>
+        </div>
+        <div class="box">
+          <div class="input-box">
+            <input type="text" id="localidade" required [(ngModel)]="address.locality" />
+            <label for="localidade">Localidade</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign-controller">
+      <a [routerLink]="['../sign-in']">Já tenho uma conta. <span class="action">Entrar</span></a >
+    </div>
+    <div class="sign-button">
+      <button (click)="verificar()" id="btn-p">{{ textButton[count-1] }}</button>
+      <button (click)="voltar()" id="btn-v" *ngIf="count > 1">Voltar</button>
+    </div>
+  </div>
+</div>
+<div class="sign-footer">
+  <div class="line"></div>
+  <google-button></google-button>
+</div>
+

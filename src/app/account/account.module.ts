@@ -1,34 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccountComponent } from './account.component';
-import { LoginComponent } from '../pages/account/login/login.component';
-import { SignUpComponent } from '../pages/account/sign-up/sign-up.component';
+import { SignUpComponent } from '../pages/sign-up/sign-up.component';
+import { SignInComponent } from '../pages/sign-in/sign-in.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent, GoogleButton } from './account.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 import { NgxMaskModule } from 'ngx-mask';
-import {
-  GoogleLoginProvider,
-  SocialAuthServiceConfig,
-  SocialLoginModule,
-} from '@abacritt/angularx-social-login';
-import { FormsModule } from '@angular/forms';
 
-const accountRoutes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: SignUpComponent },
-];
+const accountRoutes:Routes = [
+  { path: "", redirectTo: 'sign-in', pathMatch: 'full'},
+  { path: "sign-up", component: SignUpComponent},
+  { path: 'sign-in', component: SignInComponent}
+]
+
 @NgModule({
   declarations: [
     AccountComponent,
-    LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent,
+    GoogleButton
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(accountRoutes),
-    NgxMaskModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     SocialLoginModule,
+    NgxMaskModule.forRoot()
   ]
 })
-export class AccountModule {}
+export class AccountModule { }

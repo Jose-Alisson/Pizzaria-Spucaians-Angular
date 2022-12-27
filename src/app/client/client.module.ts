@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
-import { HomeComponent } from '../pages/client/home/home.component';
-import { CartComponent } from '../pages/client/cart/cart.component';
-import { AboutComponent } from '../pages/client/about/about.component';
-import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from '../pages/home/home.component';
+import { CartComponent } from '../pages/cart/cart.component';
+import { AboutComponent } from '../pages/about/about.component';
 
-const clientRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'about', component: AboutComponent }
-]
+
 
 @NgModule({
   declarations: [
@@ -21,8 +15,7 @@ const clientRoutes: Routes = [
     AboutComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule.forChild(clientRoutes)
+    CommonModule
   ]
 })
 export class ClientModule { }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoginService } from './login.service';
+import { SharAccService } from './shar-acc.service';
 
-describe('LoginService', () => {
-  let service: LoginService;
+describe('SharAccService', () => {
+  let service: SharAccService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LoginService);
+    service = TestBed.inject(SharAccService);
   });
 
   it('should be created', () => {

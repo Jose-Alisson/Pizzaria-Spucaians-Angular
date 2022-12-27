@@ -1,48 +1,41 @@
 import {
   GoogleLoginProvider,
   SocialAuthServiceConfig,
+  SocialLoginModule,
 } from '@abacritt/angularx-social-login';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountComponent } from './account/account.component';
 
 import { AppComponent } from './app.component';
-import { ClientComponent } from './client/client.component';
-import { AdminGuard } from './guards/admin.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountComponent } from './account/account.component';
+import { ClientComponent } from './client/client.component';
+import { CideBarComponent } from './shared/components/cide-bar/cide-bar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'client', pathMatch: 'full' },
-  {
-    path: 'client',
-    component: ClientComponent,
-    loadChildren: () =>
-      import('./client/client.module').then((m) => m.ClientModule),
-  },
-  {
-    path: 'admin',
-    component: ClientComponent,
-    canLoad: [AdminGuard],
-    canActivate: [AdminGuard],
-    loadChildren: () =>
-      import('./client/client.module').then((m) => m.ClientModule),
-  },
+  { path: '', redirectTo: 'account', pathMatch: 'full' },
   {
     path: 'account',
     component: AccountComponent,
     loadChildren: () =>
       import('./account/account.module').then((m) => m.AccountModule),
   },
+  {
+    path:'client',
+    component: ClientComponent
+  }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, HomeComponent, CartComponent, AboutComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
+    HttpClientModule,
     HttpClientModule
   ],
   providers: [

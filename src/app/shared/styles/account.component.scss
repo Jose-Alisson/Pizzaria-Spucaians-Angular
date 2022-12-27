@@ -2,36 +2,19 @@
   font-family: "Poppins", sans-serif;
 }
 
-.required {
-  color: var(--color-1);
-}
-
 .error{
-  color: tomato;
+  color: var(--color-6);
   font-size: 12px;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.container::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.account-container {
   background: linear-gradient(45deg, var(--color-1), var(--color-2));
-  overflow: scroll;
-  width: 100%;
-  height: 100%;
   display: flex;
 }
 
-.cide-left {
-  width: 50%;
+.cide-left,
+.cide-right {
+  width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,46 +22,41 @@
 }
 
 .cide-left #text-img {
-  height: 15%;
+  width: 40%;
 }
 
-.cide-left #icone {
+.cide-left #icon-img {
   height: 70%;
 }
 
 .cide-right {
-  width: 50%;
   background: var(--color-4);
-  box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  background: var(--color-4);
-  padding: 30px 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   overflow-y: scroll;
 }
 
-.card-header {
+.icone {
+  width: 80px;
+  height: 80px;
+}
+
+.icone img {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
-.card-header h1 {
-  position: relative;
-  font-family: "Avenir Bold", sans-serif;
+.header h1 {
+  font-family: "Avenir Bold";
+}
+
+.form {
+  margin: auto;
 }
 
 .input-group {
@@ -117,6 +95,7 @@
 }
 
 .input-box input {
+  font-weight: 500;
   width: 100%;
   height: 100%;
   background: none;
@@ -145,8 +124,6 @@
   margin-left: -75%;
 }
 
-
-
 .input-box label {
   position: absolute;
   opacity: 0.7;
@@ -164,6 +141,28 @@
   background: var(--color-4);
 }
 
+.sign-controller {
+  display: flex;
+  margin: 15px 0px;
+  justify-content: space-between;
+}
+
+.sign-controller a {
+  text-decoration: none;
+}
+
+#ess {
+  color: gray;
+}
+
+#mr {
+  color: var(--color-10);
+}
+
+.sign-button button:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 a {
   color: gray;
   text-decoration: none;
@@ -173,31 +172,22 @@ a {
   color: #287ae6;
 }
 
-.card-controller {
-  margin: 10px 0px;
-}
-
-.card-controller {
-  display: flex;
-  justify-content: space-between;
-}
-
-.card-button-controller {
-  display: flex;
-  flex-direction: column;
-}
-
-.card-button-controller button:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.card-or-login {
-  display: block;
+.sign-button button {
+  background: var(--color-1);
+  padding: 10px 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-4);
   width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+  border: 2px var(--color-1) solid;
+  font-family: "Avenir Bold";
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-v {
+  background: var(--color-6);
+  border: var(--color-6);
 }
 
 .line {
@@ -210,7 +200,7 @@ a {
 }
 
 .line::before {
-  content: "Continuar Com";
+  content: "Ou";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -219,74 +209,54 @@ a {
   padding: 0px 15px;
 }
 
-.card-button-controller button:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.card-button-controller button {
-  font-family: "Avenir Bold";
-  background: var(--color-1);
-  border: 0;
-  text-transform: uppercase;
-  color: var(--color-4);
-  outline: none;
-  border-radius: 7px;
-  padding: 9px 14px;
-}
-
-#btn-v {
-  background: var(--color-6);
-}
-
-.google-icon {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  margin: auto;
-  padding: 7px 14px;
-  border-radius: 5px;
-  border: 1px #cccccc solid;
-  background: var(--color-4);
-  cursor: pointer;
-}
-
-.card-or-login {
+.sign-footer {
   margin-top: 15px;
 }
 
-.google-icon img {
-  width: 30px;
-  margin-right: 20px;
+.sign-footer img {
+  width: 100%;
+  height: 100%;
 }
 
-@media screen and (max-width: 780px) {
-  .card-controller {
-    flex-direction: column;
-  }
+.google-button {
+  display: flex;
+  align-items: center;
+  padding: 3px 5px;
+  border: 1px var(--color-9) solid;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 700px) {
+.google-icon {
+  margin: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+@media screen and (max-width: 682px) {
   .cide-left {
     display: none;
   }
 
   .cide-right {
     width: 90%;
+    height: 90%;
     margin: auto;
     border-radius: 20px;
+    box-shadow: 2px 7px 25px rgba(0, 0, 0, 0.2);
   }
 }
 
-@media screen and (max-width: 400px) {
-  .account-container {
-    width: 100%;
-    height: 100%;
-  }
-
+@media screen and (max-width: 420px) {
   .cide-right {
     width: 100%;
     height: 100%;
     border-radius: 0px;
-    margin: auto;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .sign-controller {
+    flex-direction: column;
   }
 }

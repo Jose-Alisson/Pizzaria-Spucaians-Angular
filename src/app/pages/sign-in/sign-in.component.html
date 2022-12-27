@@ -1,0 +1,37 @@
+<div class="content">
+  <div class="header">
+    <div class="icone">
+      <img src="assets//iconePizzaria.png" alt="" />
+    </div>
+    <h1>Entrar</h1>
+  </div>
+  <div class="input-group">
+    <div class="form-content">
+      <div class="box">
+        <div class="input-box">
+          <input type="text" id="user"  required [(ngModel)]="autho.user" />
+          <label for="user">Usuario*</label>
+        </div>
+        <p class="error">{{error?.usuario}}</p>
+      </div>
+      <div class="box">
+        <div class="input-box">
+          <input type="password" id="senha"  required [(ngModel)]="autho.password" />
+          <label for="senha">Senha*</label>
+        </div>
+        <p class="error">{{error?.password}}</p>
+      </div>
+    </div>
+    <div class="sign-controller">
+      <a [routerLink]="['']" id="ess">Esqueceu Sua Senha?</a>
+      <a [routerLink]="['../sign-up']" id="mr">Me Registrar</a>
+    </div>
+    <div class="sign-button">
+      <button (click)="login(autho)">Entrar</button>
+    </div>
+  </div>
+</div>
+<div class="sign-footer">
+  <div class="line"></div>
+  <google-button></google-button>
+</div>

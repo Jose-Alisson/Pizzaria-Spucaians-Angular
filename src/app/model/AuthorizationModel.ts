@@ -5,7 +5,6 @@ export class AuthorizationModel {
   user: string = '';
   password: string = '';
   typeAuthorization: string = '';
-  roles: RolesModel[] = [];
 
   constructor() {}
 }
